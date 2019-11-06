@@ -27,20 +27,9 @@ namespace BreakingBad.Views
 
         private async Task<List<Character>> GetCharacters()
         {
-            var charactersJson = "";
-            
-            if (Application.Current.Properties.ContainsKey("characters"))
-            {
-                charactersJson = Application.Current.Properties["characters"] as string;
-            }
-            else
-            {
-                var request = await _httpClient.GetAsync("https://www.breakingbadapi.com/api/characters/");
-                charactersJson = await request.Content.ReadAsStringAsync();
-                Application.Current.Properties["characters"] = charactersJson;
-                await Application.Current.SavePropertiesAsync();
-            }
-
+            var url = "https://gist.githubusercontent.com/glitchedmob/373e1ebf69d2c90cbf1a98322b0d77b7/raw/2ab6ab26f6dd9b763ff9fe725454ed7e4492f80d/breakingbadcharacters.json";
+            var request = await _httpClient.GetAsync(url);
+            var charactersJson = await request.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<List<Character>>(charactersJson);
         }
 

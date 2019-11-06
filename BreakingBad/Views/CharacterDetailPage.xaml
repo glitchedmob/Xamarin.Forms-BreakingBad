@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BreakingBad.Views.CharacterDetailPage"
+             Title="{Binding Name}">
+    <StackLayout>
+        <Image Source="{Binding Img}" Aspect="AspectFill" HeightRequest="500" />
+        <StackLayout Padding="10,0,10,0">
+            <Label Text="{Binding Category, StringFormat='Appears on: {0}'}" />
+            <Label x:Name="Occupation" />
+            <Label Text="{Binding Portrayed, StringFormat='Played By: {0}'}"></Label>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

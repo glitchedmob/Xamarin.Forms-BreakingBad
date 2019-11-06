@@ -8,7 +8,11 @@ namespace BreakingBad
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#146335"),
+                BarTextColor = Color.White,
+            };
         }
 
         protected override void OnStart()

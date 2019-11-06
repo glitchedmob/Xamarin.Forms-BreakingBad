@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System.Net.Http;
+using BreakingBad.Views;
+using Xamarin.Forms;
 
 namespace BreakingBad
 {
@@ -7,8 +9,10 @@ namespace BreakingBad
         public App()
         {
             InitializeComponent();
+            
+            DependencyService.Register<HttpClient>();
 
-            MainPage = new NavigationPage(new MainPage())
+            MainPage = new NavigationPage(new CharactersPage())
             {
                 BarBackgroundColor = Color.FromHex("#146335"),
                 BarTextColor = Color.White,
